@@ -37,13 +37,13 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", nullable = false, unique = true) //一意制約:すでに存在している社員番号は登録できない旨をデータベースに教えてあげる
     private String code;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "password", length = 64, nullable = false)
+    @Column(name = "password", length = 64, nullable = false) //SHA256 は、どんな文字数の文字列でも必ず、64文字のハッシュ化された文字列にしてくれます。そのため、固定で64文字までという設定を追記したのです。
     private String password;
 
     @Column(name = "admin_flag", nullable = false)
