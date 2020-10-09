@@ -89,6 +89,10 @@ tr.row0 {
         background-color: #ffffff;
 }
 
+select {
+    height: 30px;
+}
+
 #flush_success{
   width: 100%;
   padding-top: 28px;
