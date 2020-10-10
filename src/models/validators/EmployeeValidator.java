@@ -40,6 +40,9 @@ public class EmployeeValidator {
         // すでに登録されている社員番号との重複チェック
         if(code_duplicate_check_flag) {
             EntityManager em = DBUtil.createEntityManager();
+            //"checkRegisteredCode "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code" 入力されたコードと一致するコードはあるか、該当した件数を取得
+            //Long.classで結果を受け取る
+            //検索結果を１件だけ取得
             long employees_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class).setParameter("code", code) .getSingleResult();
             em.close();
             if(employees_count > 0) {

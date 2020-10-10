@@ -45,10 +45,10 @@ public class EmployeesCreateServlet extends HttpServlet {
             e.setName(request.getParameter("name"));
             e.setPassword(
                     EncryptUtil.getPasswordEncrypt( //文字列をSHA256でハッシュ化するクラス
-                            request.getParameter("password"),
-                            (String)this.getServletContext().getAttribute("pepper")
-                            )
-                    );
+                            //application.propertyファイルの読み込み(listener)
+                            //this.getServletContext()でlisterのcontextに入れた値をとってくる
+                            //getAttribute("pepper")applocation.propertyの文字列取得
+                            request.getParameter("password"),(String)this.getServletContext().getAttribute("pepper")));
             e.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());

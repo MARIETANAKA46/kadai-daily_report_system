@@ -16,10 +16,10 @@
                     <th>操作</th>
                 </tr>
                 <%--<tr>～</tr>で表の横部分を指定し、その中に<th>～</th>や<td>～</td>で表題や縦軸を指定してセルを定義します。
-                <c:forEach> var:itemから取り出した要素を格納する変数名, items:ループする配列、または、コレクション, 
+                <c:forEach> var:itemから取り出した要素を格納する変数名, items:ループする配列、または、コレクション,
                 varStatus:現在のループの状態を表すステータス変数。ステータス変数の子要素からいろいろな情報を参照できる。--%>
                 <c:forEach var="employee" items="${employees}" varStatus="status">
-                    <tr class="row${status.count % 2}">
+                    <tr class="row${status.count % 2}"> //交互に色違い、status.countは現在の行
                         <td><c:out value="${employee.code}" /></td>
                         <td><c:out value="${employee.name}" /></td>
                         <td>
